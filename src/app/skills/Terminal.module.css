@@ -1,0 +1,29 @@
+/* Assuming you've already defined the variables elsewhere or replaced them with actual color values */
+
+.pink {
+  color: #ff66b2; /* Replace with your actual pink color value */
+}
+
+.green {
+  color: #00cc00; /* Replace with your actual green color value */
+}
+
+.skills {
+  columns: 1;
+}
+
+@media only screen and (min-width: 940px) {
+  .skills {
+    columns: 2;
+  }
+}
+
+.skills li {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.terminal {
+  scale: 0.8;
+  width: 90%;
+}
