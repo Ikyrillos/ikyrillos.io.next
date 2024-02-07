@@ -30,7 +30,26 @@ function ResponsiveAppBar() {
   };
 
   console.log(currentTap, "currentTap");
+  React.useEffect(() => {
+    const currRoute = window.location.pathname;
 
+    switch (currRoute) {
+      case "/":
+        setCurrentTap(0);
+        break;
+      case "/skills":
+        setCurrentTap(1);
+        break;
+      case "/portfolio":
+        setCurrentTap(2);
+        break;
+      case "/contact":
+        setCurrentTap(3);
+        break;
+      default:
+        setCurrentTap(0);
+    }
+  }, []);
   return (
     <div>
       <AppBar
