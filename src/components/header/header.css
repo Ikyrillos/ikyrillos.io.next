@@ -9,6 +9,10 @@ header {
   height: 100%;
   position: relative;
 }
+h5 {
+  color: white;
+  text-align: center;
+}
 
 .cta {
   display: flex;

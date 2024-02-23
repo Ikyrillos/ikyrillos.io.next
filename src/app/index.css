@@ -41,6 +41,7 @@ body {
   mask-repeat: no-repeat;
   line-height: 1.7;
   background-size: cover;
+  backdrop-filter: blur(2px);
   background-image: url(https://firebasestorage.googleapis.com/v0/b/portfolio-4b69b.appspot.com/o/5172658.jpg?alt=media&token=55388f21-918c-48c5-acb4-8dde105e7733);
 }
 

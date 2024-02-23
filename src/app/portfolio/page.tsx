@@ -88,8 +88,8 @@ const Portfolio = () => {
   return (
     <AnimatedContainer>
       <section id="portfolio" className="margin-top">
-        <h5>My Recent Work</h5>
-        <h2>Portfolio</h2>
+        <h5 className="text-xl text-white">My Recent Work</h5>
+        <h2 className="text-xl">Portfolio</h2>
         <Container sx={{}} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>

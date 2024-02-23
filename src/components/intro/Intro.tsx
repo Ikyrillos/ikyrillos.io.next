@@ -10,17 +10,17 @@ const Intro = () => {
   const src = info.avatar;
   log(src, "src");
   return (
-    <section id="about">
+    <section id="about" className="">
       <div className="container about__container">
         <div className="about__me">
-          <div className="about__me-image">
+          <div className={"about__me-image"}>
             <Image src={src} alt={info.firstName} width={200} height={200} />
           </div>
         </div>
         <div className="about__content">
           <div className="about__cards">
-            <article className="about__card">
-              <FaAward className="about__icon" />
+            <article className="about__card ">
+              <FaAward className="about__icon " />
               <h5>Experience</h5>
               <small>{info.yeasOfExperience}+ year</small>
             </article>
@@ -32,7 +32,7 @@ const Intro = () => {
           </div>
           <p
             style={{
-              fontSize: "1.2rem",
+              fontSize: "1.4rem",
               marginRight: "0.5rem",
               lineHeight: "2.5",
               padding: "1rem",

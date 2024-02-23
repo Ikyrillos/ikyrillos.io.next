@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Kyrillos Maher</title>
+        <link rel="icon" href="../../public/next.svg" />
       </head>
       <body className={inter.className}>
         <div>

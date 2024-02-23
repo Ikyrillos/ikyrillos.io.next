@@ -20,33 +20,22 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   return (
     <AnimatedContainer>
-      <section id="contact" className="margin-top">
-        <h5
-          style={{
-            fontSize: "1rem",
-          }}
-        >
-          Get In Touch
-        </h5>
-        <h5
-          style={{
-            fontSize: "1rem",
-          }}
-        >
+      <section id="contact" className="lg:mt-8 md:mt-8">
+        <h5 className="text-xl text-white">Get In Touch</h5>
+        <h5 className="text-xl text-white sm: px-5">
           I do receive your messages and will respond asap if the valid email is
           provided :)
         </h5>
-        <h2
-          style={{
-            marginBottom: "8px",
-          }}
+        <h2>Contact Me</h2>
+        <Grid
+          className="text-center p-5 lg:w-1/2 flex justify-center items-center mx-auto h-full"
+          item
+          xs={12}
+          sm={8}
+          md={6}
+          lg={4}
         >
-          Contact Me
-        </h2>
-        <Grid>
-          <Card
-            style={{ maxWidth: 450, padding: "14px 5px", margin: "0 auto" }}
-          >
+          <Card>
             <CardContent>
               <Typography
                 variant="body2"
@@ -54,7 +43,6 @@ const Contact = () => {
                 component="p"
                 gutterBottom
                 sx={{
-                  mb: 2,
                   fontSize: "1rem",
                 }}
               >
@@ -123,14 +111,21 @@ const Contact = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Button
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        backgroundColor: "#f50057",
+                        border: "solid",
+                        "&:hover": {
+                          backgroundColor: "#42b883",
+                          color: "white",
+                        },
+                      }}
                       type="submit"
-                      variant="contained"
-                      color="primary"
                       // mailto
                       href={`mailto:${
                         info.email
                       }?subject=Inquiry%20from%20${name}%20${lastName}&body=${content}%20${"Phone:%20"}${phone}`}
-                      fullWidth
                     >
                       Submit
                     </Button>

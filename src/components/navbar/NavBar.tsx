@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { Drawer } from "@mui/material";
 
 const pages = ["Home", "Skills", "Portfolio", "Contact"];
 
@@ -20,14 +21,6 @@ function ResponsiveAppBar() {
   );
 
   const [currentTap, setCurrentTap] = React.useState(0);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   console.log(currentTap, "currentTap");
   React.useEffect(() => {
@@ -50,6 +43,18 @@ function ResponsiveAppBar() {
         setCurrentTap(0);
     }
   }, []);
+  const [drawerState, setDrawerState] = React.useState(false);
+
+  function toggleDrawer() {
+    setDrawerState(!drawerState);
+  }
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setDrawerState(true);
+  };
+
+  const handleCloseNavMenu = () => {
+    setDrawerState(false);
+  };
   return (
     <div>
       <AppBar
@@ -126,41 +131,10 @@ function ResponsiveAppBar() {
                   horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
-              >
-                {pages.map((page) => (
-                  <Link
-                    href={
-                      pages.indexOf(page) === 0
-                        ? "/"
-                        : `/${page.toLocaleLowerCase()}`
-                    }
-                    passHref
-                    key={page}
-                  >
-                    <MenuItem
-                      key={page}
-                      onClick={() => {
-                        handleCloseNavMenu();
-                        setCurrentTap(pages.indexOf(page));
-                      }}
-                      sx={{
-                        // font color
-                        color: "black",
-                        backgroundColor:
-                          currentTap === pages.indexOf(page)
-                            ? "rgba(77, 181, 255, 0.4)"
-                            : "none",
-                      }}
-                    >
-                      <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
-                  </Link>
-                ))}
-              </Menu>
+              ></Menu>
             </Box>
             <Box
               sx={{
@@ -206,6 +180,46 @@ function ResponsiveAppBar() {
                 </Link>
               ))}
             </Box>
+            <Drawer
+              anchor={"left"}
+              open={drawerState}
+              onClose={() => setDrawerState(false)}
+            >
+              <div className="mt-20"></div>
+              {pages.map((page) => (
+                <Link
+                  href={
+                    pages.indexOf(page) === 0
+                      ? "/"
+                      : `/${page.toLocaleLowerCase()}`
+                  }
+                  passHref
+                  key={page}
+                >
+                  <MenuItem
+                    key={page}
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      setCurrentTap(pages.indexOf(page));
+                    }}
+                    className={
+                      currentTap === pages.indexOf(page) ? "active" : ""
+                    }
+                    sx={{
+                      // font color
+                      width: "200px",
+                      color: "black",
+                      backgroundColor:
+                        currentTap === pages.indexOf(page)
+                          ? "rgba(77, 181, 255, 0.4)"
+                          : "none",
+                    }}
+                  >
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </Link>
+              ))}
+            </Drawer>
           </Toolbar>
         </Container>
       </AppBar>
